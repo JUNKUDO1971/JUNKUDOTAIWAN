@@ -165,9 +165,8 @@
 
 .order-textarea {
   width: 100%;
-  height: calc(100vh - 260px);
-  min-height: 250px;
-  max-height: calc(100vh - 260px);
+  min-height: 300px;
+  max-height: calc(100vh - 300px);
   box-sizing: border-box;
   resize: none;
   overflow-y: auto;
@@ -529,7 +528,12 @@ function renderOrderEditor() {
   </button>
     </div>
   `;
-  document.getElementById("orderText").value = ORDER_TEMPLATE;
+  const orderText = document.getElementById("orderText");
+orderText.value = ORDER_TEMPLATE.trimStart();
+orderText.style.height = "auto";
+const maxHeight = window.innerHeight - 300;
+orderText.style.height =
+  Math.min(orderText.scrollHeight, maxHeight) + "px";
 }
 
 async function copyOrderMessage() {
