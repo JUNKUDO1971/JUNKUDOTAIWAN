@@ -162,15 +162,12 @@
 .order-editor {
   width: 100%;
 }
-.order-editor {
-   margin: 0 0 14px;
-}
-
 
 .order-textarea {
   width: 100%;
-  min-height: 300px;
-  max-height: calc(100vh - 300px);
+  height: calc(100vh - 260px);
+  min-height: 250px;
+  max-height: calc(100vh - 260px);
   box-sizing: border-box;
   resize: none;
   overflow-y: auto;
@@ -208,7 +205,6 @@
   max-height: calc(100vh - 220px);
   overflow-y: auto;
   resize: none;
-}
 }
 </style>
 </head>
@@ -409,19 +405,12 @@ function getFiltered() {
 
 function render() {
   renderCategories();
-    document.querySelector(".main").classList.toggle(
-    "order-mode",
-    currentCategory === ORDER_CATEGORY_ID
-  );
 if (currentCategory === ORDER_CATEGORY_ID) {
-document.querySelector(".toolbar").style.display = "";
-document.querySelector(".list-head").style.display = "";
+  document.getElementById("listTitle").textContent = "";
+document.getElementById("resultCount").textContent = "";
   renderOrderEditor();
   return;
 }
-document.querySelector(".toolbar").style.display = "";
-document.querySelector(".list-head").style.display = "";
-  
   const list = getFiltered();
   document.getElementById("listTitle").textContent =
     currentCategory === "all" ? "所有訊息" :
@@ -540,12 +529,7 @@ function renderOrderEditor() {
   </button>
     </div>
   `;
-  const orderText = document.getElementById("orderText");
-orderText.value = ORDER_TEMPLATE.trimStart();
-orderText.style.height = "auto";
-const maxHeight = window.innerHeight - 300;
-orderText.style.height =
-  Math.min(orderText.scrollHeight, maxHeight) + "px";
+  document.getElementById("orderText").value = ORDER_TEMPLATE;
 }
 
 async function copyOrderMessage() {
