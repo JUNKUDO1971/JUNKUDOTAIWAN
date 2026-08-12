@@ -209,6 +209,11 @@
   overflow-y: auto;
   resize: none;
 }
+
+  .main.order-mode .toolbar,
+.main.order-mode .list-head {
+  display: none;
+}
 </style>
 </head>
 <body>
@@ -408,9 +413,11 @@ function getFiltered() {
 
 function render() {
   renderCategories();
+    document.querySelector(".main").classList.toggle(
+    "order-mode",
+    currentCategory === ORDER_CATEGORY_ID
+  );
 if (currentCategory === ORDER_CATEGORY_ID) {
-  document.getElementById(".toolbar").textContent = "";
-document.getElementById(".list-head").textContent = "";
   renderOrderEditor();
   return;
 }
