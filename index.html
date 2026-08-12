@@ -404,13 +404,15 @@ function getFiltered() {
 }
 
 function render() {
-  renderCategories();
-if (currentCategory === ORDER_CATEGORY_ID) {
-  document.getElementById("listTitle").textContent = "";
-document.getElementById("resultCount").textContent = "";
-  renderOrderEditor();
-  return;
-}
+  renderCategories();
+  const listHead = document.querySelector(".list-head");
+  if (currentCategory === ORDER_CATEGORY_ID) {
+    listHead.style.display = "none";
+    renderOrderEditor();
+    return;
+  }
+
+  listHead.style.display = "";
   const list = getFiltered();
   document.getElementById("listTitle").textContent =
     currentCategory === "all" ? "所有訊息" :
