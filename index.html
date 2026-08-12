@@ -164,15 +164,18 @@
 }
 
 .order-textarea {
-  width: 100%;
-  min-height: 500px;
-  box-sizing: border-box;
-  resize: vertical;
-  padding: 14px;
-  line-height: 1.7;
-  font: inherit;
-  border: 1px solid var(--line);
-  border-radius: 10px;
+  width: 100%;
+  height: calc(100vh - 260px);
+  min-height: 250px;
+  max-height: calc(100vh - 260px);
+  box-sizing: border-box;
+  resize: none;
+  overflow-y: auto;
+  padding: 14px;
+  line-height: 1.7;
+  font: inherit;
+  border: 1px solid var(--line);
+  border-radius: 10px;
 }
 
 .order-tools {
@@ -218,7 +221,6 @@
     </aside>
 
     <main class="main">
-      <div class="toolbar"><button class="btn" onclick="setCategory('all')">全部</button></div>
       <div class="list-head">
         <h2 id="listTitle">所有訊息</h2>
         <div class="muted" id="resultCount"></div>
