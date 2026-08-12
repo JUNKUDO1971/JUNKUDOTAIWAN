@@ -404,6 +404,8 @@ function getFiltered() {
 function render() {
   renderCategories();
 if (currentCategory === ORDER_CATEGORY_ID) {
+  document.getElementById("listTitle").textContent = "";
+document.getElementById("resultCount").textContent = "";
   renderOrderEditor();
   return;
 }
