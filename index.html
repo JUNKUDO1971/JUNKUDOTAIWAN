@@ -209,10 +209,6 @@
   overflow-y: auto;
   resize: none;
 }
-
-  .main.order-mode .toolbar,
-.main.order-mode .list-head {
-  display: none;
 }
 </style>
 </head>
@@ -418,6 +414,8 @@ function render() {
     currentCategory === ORDER_CATEGORY_ID
   );
 if (currentCategory === ORDER_CATEGORY_ID) {
+document.querySelector(".toolbar").style.display = "";
+document.querySelector(".list-head").style.display = "";
   renderOrderEditor();
   return;
 }
