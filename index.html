@@ -165,11 +165,9 @@
 
 .order-textarea {
   width: 100%;
-  height: calc(100vh - 260px);
-  min-height: 250px;
-  max-height: calc(100vh - 260px);
+  height: 500px;
   box-sizing: border-box;
-  resize: none;
+  resize: vertical;
   overflow-y: auto;
   padding: 14px;
   line-height: 1.7;
@@ -531,7 +529,7 @@ function renderOrderEditor() {
   </button>
     </div>
   `;
-  document.getElementById("orderText").value = ORDER_TEMPLATE;
+  document.getElementById("orderText").value = ORDER_TEMPLATE.trimStart();
 }
 
 async function copyOrderMessage() {
