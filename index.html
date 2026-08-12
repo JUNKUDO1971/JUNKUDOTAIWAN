@@ -209,7 +209,6 @@
   overflow-y: auto;
   resize: none;
 }
-}
 </style>
 </head>
 <body>
@@ -409,19 +408,12 @@ function getFiltered() {
 
 function render() {
   renderCategories();
-    document.querySelector(".main").classList.toggle(
-    "order-mode",
-    currentCategory === ORDER_CATEGORY_ID
-  );
 if (currentCategory === ORDER_CATEGORY_ID) {
-document.querySelector(".toolbar").style.display = "";
-document.querySelector(".list-head").style.display = "";
+  document.getElementById("listTitle").textContent = "";
+document.getElementById("resultCount").textContent = "";
   renderOrderEditor();
   return;
 }
-document.querySelector(".toolbar").style.display = "";
-document.querySelector(".list-head").style.display = "";
-  
   const list = getFiltered();
   document.getElementById("listTitle").textContent =
     currentCategory === "all" ? "所有訊息" :
