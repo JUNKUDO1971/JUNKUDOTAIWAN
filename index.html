@@ -597,6 +597,7 @@ function escapeHtml(s) {
 async function copyMessage(id) {
   const m = messages.find(x => x.id === id);
   if (!m) return;
+  const text = resolveMessageText(m.text);
   try {
     await navigator.clipboard.writeText(text);
     toast("✓ 已複製到剪貼簿");
