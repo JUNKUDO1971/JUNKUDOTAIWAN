@@ -603,7 +603,7 @@ async function copyMessage(id) {
     toast("✓ 已複製到剪貼簿");
   } catch {
     const ta = document.createElement("textarea");
-    ta.value = m.text; document.body.appendChild(ta); ta.select();
+    ta.value = resolveMessageText(m.text); document.body.appendChild(ta); ta.select();
     document.execCommand("copy"); ta.remove();
     toast("✓ 已複製到剪貼簿");
   }
