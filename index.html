@@ -526,7 +526,7 @@ function renderOrderEditor() {
     type="button"
     onclick="clearOrderText()"
   >
-    🗑️ 清除全部
+    🔁 恢復預設
   </button>
     </div>
   `;
@@ -561,7 +561,9 @@ function clearOrderText() {
 
   if (!textarea) return;
 
-  textarea.value = "";
+  textarea.value = ORDER_TEMPLATE.trimStart();
+  textarea.style.height = "auto";
+  textarea.style.height = textarea.scrollHeight + "px";
 
   textarea.focus();
 }
