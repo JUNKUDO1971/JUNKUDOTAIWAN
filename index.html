@@ -532,7 +532,7 @@ function renderOrderEditor() {
   </button>
     </div>
   `;
-  document.getElementById("orderText").value = ORDER_TEMPLATE.trimStart();
+  document.getElementById("orderText").value = resolveMessageText(ORDER_TEMPLATE).trimStart();
   orderText.style.height = "auto";
 orderText.style.height = orderText.scrollHeight + "px";
 }
@@ -563,7 +563,7 @@ function clearOrderText() {
 
   if (!textarea) return;
 
-  textarea.value = ORDER_TEMPLATE.trimStart();
+  textarea.value = resolveMessageText(ORDER_TEMPLATE).trimStart();
   textarea.style.height = "auto";
   textarea.style.height = textarea.scrollHeight + "px";
 
